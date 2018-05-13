@@ -594,14 +594,14 @@ input[type="text"], input[type="password"], input[type="email"], textarea {
     border: 1px solid #ddd;
     padding: 10px;
 }
-input[type="submit"], button[type=submit] {
+input[type="button"], button[type=button] {
     background: none repeat scroll 0 0 #1abc9c;
     border: medium none;
     color: #fff;
     padding: 11px 20px;
     text-transform: uppercase;
 }
-input[type="submit"]:hover, button[type=submit]:hover {background-color: #222}
+input[type="button"]:hover, button[type=button]:hover {background-color: #222}
 .single-sidebar input[type="text"] {
     margin-bottom: 10px;
     width: 100%;
@@ -824,9 +824,9 @@ td.actions div.coupon {
     width: 57%;
 }
 .cart_totals {
-    float: right;
+    float: left;
     margin-bottom: 50px;
-    width: 40%;
+    width: 30%;
 }
 .cart-collaterals h2 {
     color: #1abc9c;
