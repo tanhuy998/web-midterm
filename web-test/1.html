@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/responsive.css">
 
+    <script type="text/javascript" src="js/lib.js"></script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -123,7 +125,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-bit-title text-center">
-                        <h2>Shop</h2>
+                        <h2>Sản Phẩm</h2>
                     </div>
                 </div>
             </div>
@@ -137,7 +139,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="single-sidebar">
-                        <h2 class="sidebar-title">Search Products</h2>
+                        <h2 class="sidebar-title">Tìm kiếm sản phẩm</h2>
                         <form action="">
                             <input type="text" placeholder="Search products...">
                             <input type="submit" value="Search">
@@ -145,7 +147,7 @@
                     </div>
                     
                     <div class="single-sidebar">
-                        <h2 class="sidebar-title">Products</h2>
+                        <h2 class="sidebar-title">Các sản phẩm</h2>
                         <div class="thubmnail-recent">
                             <img src="img/ao1.png" class="recent-thumb" alt="">
                             <h2><a href="1.html">Sơ mi kẻ sọc-họa tiết ong GUCCI </a></h2>
@@ -256,7 +258,7 @@
                     
                     
                     <div class="single-sidebar">
-                        <h2 class="sidebar-title">Recent Posts</h2>
+                        <h2 class="sidebar-title">Sản phẩm mới</h2>
                       <ul>
                             <li><a href="1.html">Sơ mi kẻ sọc-họa tiết ong GUCCI</a></li>
                             <li><a href="2.html">Sơ mi công tước thêu GUCCI</a></li>
@@ -271,9 +273,9 @@
                 <div class="col-md-8">
                     <div class="product-content-right">
                         <div class="product-breadcroumb">
-                            <a href="">Home</a>
-                            <a href="">Category Name</a>
-                            <a href="">Sony Smart TV - 2015</a>
+                            <a href="index.html">Trang chủ</a>
+                            <a href="shop-ao.html">Áo</a>
+                            <a href="#">Sơ mi kẻ sọc-họa tiết ong GUCCI</a>
                         </div>
                         
                         <div class="row">
@@ -301,9 +303,9 @@
                                     
                                     <form action="" class="cart">
                                         <div class="quantity">
-                                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
+                                            <input id="#quantity" type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
                                         </div>
-                                        <button class="add_to_cart_button" type="submit">Add to cart</button>
+                                        <button onclick="AddCartProductCookie('Sơ mi kẻ sọc-họa tiết ong GUCCI','1400000',GetQuantity('#quantity'),'img/ao1.png','1.html')" class="add_to_cart_button" type="button">Add to cart</button>
                                     </form>   
                                     
                                     <div class="product-inner-category">
