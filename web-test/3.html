@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="dropstyle.css">
     
     <script type="text/javascript" src="js/lib.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -30,7 +31,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body onload="CartTotal()">
    
     <div class="header-area">
         <div class="container">
@@ -85,7 +86,7 @@
                 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="cart.html">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                        <a href="cart.html">Cart - <span id="#amount" class="cart-amunt">$</span> <i class="fa fa-shopping-cart"></i> <span id="#count" class="product-count"></span></a>
                     </div>
                 </div>
             </div>
@@ -105,14 +106,32 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="shop.html">Shop page</a></li>
-                        <li class="active"><a href="single-product.html">Single product</a></li>
-                        <li><a href="cart.html">Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="index.html">TRANG CHỦ</a></li>
+                        <li >
+                            <div class="dropdown">
+                                <button class="dropbtn">SẢN PHẨM</button>
+                                <div class="dropdown-content">
+                                  <a href="shop-ao.html">ÁO</a>
+                                  <a href="shop-quan.html">QUẦN</a>
+                                  <a href="shop-giay.html">GIÀY DÉP</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="active"><a href="#">Single product</a></li>
+                        <li><a href="cart.html">Giỏ hàng</a></li>
+                        <li><a href="checkout.html">Thanh toán</a></li>
                         <!-- <li><a href="#">Category</a></li> -->
                         <!-- <li><a href="#">Others</a></li> -->
-                        <li><a href="#">Contact</a></li>
+                        <li>
+                            <div class="dropdown">
+                                <button class="dropbtn">LIÊN HỆ</button>
+                                <div class="dropdown-content">
+                                    <a href="#">Facebook</a>
+                                    <a href="#">Instagram</a>
+                                    <a href="#">Địa chỉ shop</a>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>  
             </div>
@@ -138,11 +157,28 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="single-sidebar">
-                        <h2 class="sidebar-title">Tìm kiếm sản phẩm</h2>
-                        <form action="">
-                            <input type="text" placeholder="Search products...">
-                            <input type="submit" value="Search">
-                        </form>
+                        <h2 class="sidebar-title">Tìm Kiếm Sản Phẩm </h2>
+                        <input type="text" id="myInput" placeholder="Tìm kiếm sản phẩm">
+                        <input type="submit" onclick="SearchProducts()" value="Tìm kiếm">
+                        <ul id="myUL">
+                            <li class="search"><a href="1.html">Sơ mi kẻ sọc-họa tiết ong GUCCI</a></li>
+                            <li class="search"><a href="2.html">Sơ mi công tước thêu GUCCI</a></li>
+                            <li class="search"><a href="3.html">Áo cộc tay dài GUCCI</a></li>
+                            <li class="search"><a href="4.html">Áo tay dài-họa tiết hoa GUCCI</a></li>
+                            <li class="search"><a href="5.html">Áo lụa với cà vạt cổ GUCCI</a></li>
+                            <li class="search"><a href="6.html">Áo sơ mi tay dài</a></li>
+
+                            <li class="search"><a href="12.html">Quần short nam năng động</a></li>
+                            <li class="search"><a href="13.html">Quần short nam new</a></li>
+                            <li class="search"><a href="14.html">Quần short nữ new</a></li>
+                            <li class="search"><a href="15.html">Quần tây nam GUCCI</a></li>
+
+                            <li class="search"><a href="7.html">Dép nam quai ngang chỉ nổi</a></li>
+                            <li class="search"><a href="8.html">Giày lười nam gót sọc</a></li>
+                            <li class="search"><a href="9.html">Giày da nam</a></li>
+                            <li class="search"><a href="10.html">Giày da nam new</a></li>
+                            <li class="search"><a href="11.html">Giày thể thao nam new</a></li>
+                        </ul>
                     </div>
                     
                     <div class="single-sidebar">
