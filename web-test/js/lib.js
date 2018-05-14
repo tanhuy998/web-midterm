@@ -147,6 +147,7 @@ function PrintCheckout() {
     var cookieTotal = GetCookieValue("carttotal");
     var value = cookieTotal.split("-");
     var cartTotal = value[0];
+    document.getElementById("#sub").innerHTML = cartTotal;
     var totalWithShip = parseInt(cartTotal) + parseInt(ship);
     document.getElementById("#total").innerHTML = totalWithShip;
 }
