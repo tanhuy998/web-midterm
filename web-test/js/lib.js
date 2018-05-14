@@ -46,14 +46,15 @@ function AddCartProductCookie(pName, pPrice, pQuantity, img, path) {
     var pValue = pPrice + "-" + pQuantity + "-" + total.toString() + "-" + img + "-" +path;    
     console.log("setcookie");
     SetCookie(pName, pValue, 1, "");
+    SetShopingCart();
 }
 
 function PrintProductsToCartTable() {
     var cookie = document.cookie;
     var productsList = cookie.split("; ");
     console.log(document.cookie);
-    var cartTotal = 0;
-    var productsCount = productsList.length - 1;
+    //var cartTotal = 0;
+    //var productsCount = productsList.length - 1;
 
     for ( i = 0; i < productsList.length; ++i) {
         var nameValue = productsList[i].split('=');
@@ -72,12 +73,44 @@ function PrintProductsToCartTable() {
         var path = value[4];
         SetHTMLTag(name,price,quantity,img,total,path);
 
+        //cartTotal += parseInt(total);
+        //console.log(cartTotal);  
+    }
+
+    //var cartTotalCValue = cartTotal.toString() + "-" + productsCount.toString();
+    //SetCookie("carttotal",cartTotalCValue,1,"");
+}
+
+function SetShopingCart() {
+    var cookie = document.cookie;
+    var productsList = cookie.split("; ");
+    console.log(document.cookie);
+    var cartTotal = 0;
+    var productsCount = 0; //= productsList.length - 2;
+
+    for ( i = 0; i < productsList.length; ++i) {
+        var nameValue = productsList[i].split('=');
+        var name = nameValue[0];
+
+        if (name == 'carttotal' || name == 'ship') { continue;}
+        
+        var value = nameValue[1].split("-");
+        console.log(name);
+
+        // get all attribute of product
+        var price = value[0];
+        var total = value[2];
+
         cartTotal += parseInt(total);
+        productsCount += 1;
         console.log(cartTotal);  
     }
 
+    console.log(cartTotal);
     var cartTotalCValue = cartTotal.toString() + "-" + productsCount.toString();
     SetCookie("carttotal",cartTotalCValue,1,"");
+
+    CartTotal();
 }
 
 function PrintCheckout() {
@@ -125,8 +158,8 @@ function CartTotal() {
     var productCount = cartValue[1];
     console.log(total);
 
-    document.getElementById("#amount").innerHTML += total;
-    document.getElementById("#count").innerHTML += productCount;
+    document.getElementById("#amount").innerHTML = total;
+    document.getElementById("#count").innerHTML = productCount;
 }
 
 function UpdateCart() {
@@ -156,7 +189,7 @@ function SetHTMLTag(className,price,quantity,img,total,path) {
     var id = GetHashCode(className);
     console.log(id);
     var cookie = "\'" + className + "\'" + "," + price + "," + "GetCartQuantity(\'" + className + "\')" + "," + "\'" + img + "\'" + "," + "\'" + path + "\'";
-    var tag =  "<tr class=" + "\"" + className + "\"" + "><td class=\"product-remove\" onclick=\"\"><a title=\"Remove this item\" class=\"remove\"  href=\"#\" onclick=\"DeleteCartProduct(\'" + className +"\');window.location.reload();\">×</a> </td> <td class=\"product-thumbnail\"><a href=\"#\"><img width=\"145\" height=\"145\" alt=\"poster_1_up\" class=\"shop_thumbnail\" src=\"" + img +"\"></a></td><td class=\"product-name\"><a href=\"" + path + "\">" + className +"</a> </td><td class=\"product-price\"><span class=\"amount\">£"+ price +"</span> </td><td class=\"product-quantity\"><div class=\"quantity buttons_added\"><input type=\"button\" class=\"minus\" value=\"-\"><input id=\"#" + id.toString() +"\" onchange=\"AddCartProductCookie(" + cookie + ")\" type=\"number\" size=\"4\" class=\"input-text qty text\" title=\"Qty\" value=\"" + quantity + "\" min=\"0\" step=0\"1\"><input type=\"button\" class=\"plus\" value=\"+\"></div></td><td class=\"product-subtotal\"><span class=\"amount\">£"+ total +"</span></td></tr>";
+    var tag =  "<tr class=" + "\"" + className + "\"" + "><td class=\"product-remove\" onclick=\"\"><a title=\"Remove this item\" class=\"remove\"  href=\"#\" onclick=\"DeleteCartProduct(\'" + className +"\');window.location.reload();\">×</a> </td> <td class=\"product-thumbnail\"><a href=\"#\"><img width=\"145\" height=\"145\" alt=\"poster_1_up\" class=\"shop_thumbnail\" src=\"" + img +"\"></a></td><td class=\"product-name\"><a href=\"" + path + "\">" + className +"</a> </td><td class=\"product-price\"><span class=\"amount\">£"+ price +"</span> </td><td class=\"product-quantity\"><div class=\"quantity buttons_added\"><input id=\"#" + id.toString() +"\" onchange=\"AddCartProductCookie(" + cookie + ")\" type=\"number\" size=\"4\" class=\"input-text qty text\" title=\"Qty\" value=\"" + quantity + "\" min=\"0\" step=0\"1\"></div></td><td class=\"product-subtotal\"><span class=\"amount\">£"+ total +"</span></td></tr>";
     
     //var html = document.getElementById("product-list");
     //html.insertBefore(html, html.childNodes[0]);
@@ -180,9 +213,6 @@ function GetCartQuantity(className) {
 function GetQuantity(id) {
     var val = document.getElementById(id).value;
     return val;
-}
-function ReduceQuantity(className) {
-    
 }
 
 function GetHashCode(str) {

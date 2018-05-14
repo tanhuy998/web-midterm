@@ -594,14 +594,14 @@ input[type="text"], input[type="password"], input[type="email"], textarea {
     border: 1px solid #ddd;
     padding: 10px;
 }
-input[type="button"], button[type=button] {
+input[type="button"], input[type="submit"], button[type=button] {
     background: none repeat scroll 0 0 #1abc9c;
     border: medium none;
     color: #fff;
     padding: 11px 20px;
     text-transform: uppercase;
 }
-input[type="button"]:hover, button[type=button]:hover {background-color: #222}
+input[type="button"]:hover, input[type="submit"]:hover, button[type=button]:hover {background-color: #222}
 .single-sidebar input[type="text"] {
     margin-bottom: 10px;
     width: 100%;
